@@ -57,3 +57,5 @@ AysncContext.prototype = {
         }
     }
 };
+
+module.exports = AysncContext;
