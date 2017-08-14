@@ -15,7 +15,10 @@
     "context",
     "js"
   ],
-  "author": "Carlis Liu",
+  "author": {
+    "name": "Carlis Liu",
+    "email": "support@networkbench.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/carlisliu/async-ctx/issues"

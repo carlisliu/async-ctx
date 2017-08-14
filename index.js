@@ -1,3 +1,9 @@
+function create(proto) {
+    function A() {}
+    A.prototype = proto;
+    return new A();
+}
+
 function AysncContext() {
     this.active = null;
     this._set = [];
@@ -5,7 +11,7 @@ function AysncContext() {
 
 AysncContext.prototype = {
     createContext: function() {
-        return Object.create(this.active);
+        return Object.create ? Object.create(this.active) : create(this.active);
     },
     get: function(key) {
         if (this.active) {
