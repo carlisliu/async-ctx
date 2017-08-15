@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/carlisliu/async-ctx/issues"
   },
-  "homepage": "https://github.com/carlisliu/async-ctx#readme"
+  "homepage": "https://github.com/carlisliu/async-ctx#readme",
+  "dependencies": {
+    "func-wrapper": "^1.0.1",
+    "js-is-type": "^1.1.0"
+  }
 }
