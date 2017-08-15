@@ -1,3 +1,10 @@
+import {
+    glue
+} from './async-lisnter';
+import {
+    createAsyncListener
+} from './async-lisnter/listener';
+
 function create(proto) {
     function A() {}
     A.prototype = proto;
@@ -5,6 +12,7 @@ function create(proto) {
 }
 
 function AysncContext() {
+    this.id = null;
     this.active = null;
     this._set = [];
 }
@@ -64,4 +72,31 @@ AysncContext.prototype = {
     }
 };
 
-module.exports = AysncContext;
+function create() {
+    var context = new AysncContext();
+    context.id = createAsyncListener({
+        create: function() {
+            return context.active;
+        },
+        before: function(_this, storage) {
+            if (storage) {
+                context.enter(storage);
+            }
+        },
+        after: function(_this, storage) {
+            if (storage) {
+                context.exit(storage);
+            }
+        },
+        error: function(storage, error) {
+            if (storage) {
+                context.exit(storage);
+            }
+        }
+    });
+    return context;
+}
+
+glue();
+
+export default create();
