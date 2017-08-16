@@ -1,6 +1,6 @@
 {
   "name": "async-ctx",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "async context",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,6 @@
   "homepage": "https://github.com/carlisliu/async-ctx#readme",
   "dependencies": {
     "func-wrapper": "^1.0.1",
-    "js-is-type": "^1.1.0"
+    "js-is-type": "^2.0.0"
   }
 }
