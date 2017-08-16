@@ -1,9 +1,9 @@
 import {
     glue
-} from './async-lisnter';
+} from './async-listener';
 import {
     createAsyncListener
-} from './async-lisnter/listener';
+} from './async-listener/listener';
 
 function create(proto) {
     function A() {}
@@ -72,7 +72,8 @@ AysncContext.prototype = {
     }
 };
 
-function create() {
+export default function create(window) {
+    glue(window);
     var context = new AysncContext();
     context.id = createAsyncListener({
         create: function() {
@@ -96,7 +97,3 @@ function create() {
     });
     return context;
 }
-
-glue();
-
-export default create();
