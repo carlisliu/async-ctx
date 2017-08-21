@@ -95,6 +95,10 @@ export default function create(window) {
         },
         error: function(storage, error) {
             if (storage) {
+                try {
+                    var MODULEID = 'moduleId';
+                    error[MODULEID] = storage[MODULEID];
+                } catch (e) {}
                 context.exit(storage);
             }
         }

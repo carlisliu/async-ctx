@@ -1,6 +1,6 @@
 {
   "name": "async-ctx",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "async context",
   "main": "index.js",
   "scripts": {
