@@ -64,6 +64,10 @@ AysncContext.prototype = {
             try {
                 return fn.apply(this, arguments);
             } catch (exception) {
+                try {
+                    var MODULEID = 'moduleId';
+                    exception[MODULEID] = context[MODULEID];
+                } catch (e) {}
                 throw exception;
             } finally {
                 self.exit(context);
@@ -91,10 +95,6 @@ export default function create(window) {
         },
         error: function(storage, error) {
             if (storage) {
-                try {
-                    var MODULEID = 'moduleId';
-                    error[MODULEID] = storage[MODULEID];
-                } catch (e) {}
                 context.exit(storage);
             }
         }
