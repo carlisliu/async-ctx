@@ -10,14 +10,16 @@ import {
 } from 'tingyun-browser-util';
 
 export function glue(window) {
-    wrap(window, 'addEventListener', function(addEventListener) {
-        return function(event, listener, captured) {
-            if (isFunction(listener)) {
-                arguments[1] = wrapCallback(listener);
+    if (window.EventTarget) {
+        wrap(window.EventTarget.prototype, 'addEventListener', function(addEventListener) {
+            return function(event, listener, captured) {
+                if (isFunction(listener)) {
+                    arguments[1] = wrapCallback(listener);
+                }
+                return addEventListener.apply(this, arguments);
             }
-            return addEventListener.apply(this, arguments);
-        }
-    });
+        });
+    }
 
     wrap(window, 'setTimeout', wrapTimer);
     wrap(window, 'setInterval', wrapTimer);
