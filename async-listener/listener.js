@@ -73,7 +73,7 @@ function aysncWrap(original) {
 }
 
 export function wrapCallback(original) {
-    if (!interceptor || interceptor.flags <= 0) {
+    if (!listener || listener.flags <= 0) {
         return original;
     }
     return aysncWrap(original);
