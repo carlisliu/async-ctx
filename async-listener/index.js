@@ -9,7 +9,7 @@ import {
     applyFunction
 } from 'tingyun-browser-util';
 
-export function glue(window) {
+export default function glue(window) {
     var proto = window.EventTarget && window.EventTarget.prototype;
     wrap(proto, 'addEventListener', function(addEventListener) {
         return function(event, listener, captured) {
