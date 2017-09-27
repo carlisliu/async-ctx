@@ -26,6 +26,7 @@
   "homepage": "https://github.com/carlisliu/async-ctx#readme",
   "dependencies": {
     "func-wrapper": "^1.0.1",
-    "js-is-type": "^2.0.0"
+    "js-is-type": "^2.0.0",
+    "tingyun-browser-util": "^2.0.0"
   }
 }
