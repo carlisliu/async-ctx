@@ -5,6 +5,8 @@ import {
     createAsyncListener
 } from './async-listener/listener';
 
+var MODULEID = 'moduleId';
+
 function create(proto) {
     function A() {}
     A.prototype = proto;
@@ -65,7 +67,6 @@ AysncContext.prototype = {
                 return fn.apply(this, arguments);
             } catch (exception) {
                 try {
-                    var MODULEID = 'moduleId';
                     exception[MODULEID] = context[MODULEID];
                 } catch (e) {}
                 throw exception;
@@ -96,7 +97,6 @@ export default function create(window) {
         error: function(storage, error) {
             if (storage) {
                 try {
-                    var MODULEID = 'moduleId';
                     error[MODULEID] = storage[MODULEID];
                 } catch (e) {}
                 context.exit(storage);
